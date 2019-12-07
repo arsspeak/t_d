@@ -2,6 +2,7 @@ package Tower;
 
 import Enemy.Enemy;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
 
 
 public class TowerFrame {
@@ -47,6 +48,12 @@ public class TowerFrame {
         {
             attack(LockedEnemy);
             if(outOfRange(LockedEnemy)) {
+                lock = false;
+                LockedEnemy = null;
+                break;
+            }
+            if(LockedEnemy.getHealth()<=0)
+            {
                 lock = false;
                 LockedEnemy = null;
                 break;
