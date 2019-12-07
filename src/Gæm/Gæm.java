@@ -2,7 +2,7 @@ package Gæm;
 import Enemy.Enemy;
 import PlayerObj.Player;
 import Tower.TowerFrame;
-import Tower.Type.Regular;
+
 
 import java.util.*;
 
