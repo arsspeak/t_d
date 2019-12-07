@@ -14,7 +14,7 @@ public class Enemy {
     public int X;
     public int Y;
 
-    public void Enemy(String type) {
+    public Enemy(String type) {
 
         //
         direction = 3;

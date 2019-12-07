@@ -2,21 +2,30 @@ package Tower;
 
 import Enemy.Enemy;
 import java.util.List;
-import java.util.concurrent.locks.Lock;
 
 
 public class TowerFrame {
-    public int damage;
-    public int cost;
-    public int range;
+    private int damage;
+    private int cost;
+    private int range;
 
     public int X;
     public int Y;
 
-    public boolean lock;
+    private boolean lock;
 
     Enemy LockedEnemy;
 
+
+    public TowerFrame(String type)
+    {
+        switch(type)
+        {
+            case "Reg_Lv1":
+            case "Reg_Lv2":
+            case "add more pls":
+        }
+    }
 
     public void attack(Enemy gae)
     {

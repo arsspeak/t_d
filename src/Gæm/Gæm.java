@@ -3,7 +3,6 @@ import Enemy.Enemy;
 import PlayerObj.Player;
 import Tower.TowerFrame;
 
-
 import java.util.*;
 
 public class Gæm {
@@ -22,6 +21,7 @@ public class Gæm {
             for(Enemy enemy : enemies) enemy.action(player);
             System.runFinalization();
             if(player.isthisLoss()) break;
+
         }
     }
 
