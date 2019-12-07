@@ -2,6 +2,7 @@ package Gæm;
 import Enemy.Enemy;
 import PlayerObj.Player;
 import Tower.TowerFrame;
+import Tower.Type.Regular;
 
 import java.util.*;
 
@@ -244,14 +245,8 @@ public class Gæm {
 
         while(!player.isthisLoss())
         {
-            for(int i=0; i<towers.size(); i++)
-            {
-                towers.get(i).action(enemies);
-            }
-            for(int i=0; i<enemies.size(); i++)
-            {
-                enemies.get(i).action(player);
-            }
+            for(TowerFrame tower : towers) tower.action(enemies);
+            for(Enemy enemy : enemies) enemy.action(player);
             if(player.isthisLoss()) break;
         }
     }
