@@ -5,6 +5,9 @@ public class Player {
     private int credits;
     private int health;
 
+    public int baseX;
+    public int baseY;
+
     public int getScore(){
         return this.score;
     }
@@ -17,21 +20,21 @@ public class Player {
         return this.health;
     }
 
-    public void setScore(int score){
-        this.score = score;
-    }
-
-    public void setHealth(int health){
-        this.health = health;
-    }
-
-    public void setCredits(int credits){
-        this.credits = credits;
+    public void rekt(int damage)
+    {
+        this.health-=damage;
     }
 
     public boolean isthisLoss(){
         if(this.health<=0) return true;
         else return false;
+    }
+
+    public void Player()
+    {
+        score = 0;
+        credits =1000;
+        health =1000;
     }
 
 }

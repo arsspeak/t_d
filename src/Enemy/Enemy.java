@@ -2,6 +2,7 @@ package Enemy;
 import javafx.scene.image.*;
 
 import java.io.InputStream;
+import PlayerObj.Player;
 
 public class Enemy {
 
@@ -33,32 +34,29 @@ public class Enemy {
 
     Image EnemyImg = new Image(InputStream.nullInputStream());
 
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
+    public void setSpeed(int speed)
+    {
         this.speed = speed;
     }
 
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
+    public void setHealth(int health)
+    {
         this.health = health;
     }
 
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
+    public void setDamage(int damage)
+    {
         this.damage = damage;
     }
 
     public void getAttacked(int damage)
     {
         this.health-=damage;
+    }
+
+
+    public void action(Player player)
+    {
+        if(this.X>=player.baseX) player.rekt(damage);
     }
 }

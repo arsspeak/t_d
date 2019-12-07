@@ -4,7 +4,7 @@ import Enemy.Enemy;
 import java.util.List;
 
 
-public abstract class TowerFrame {
+public class TowerFrame {
     public int damage;
     public int cost;
     public int range;
