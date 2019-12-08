@@ -5,12 +5,12 @@ public class Player {
     private int credits;
     private int health;
 
-    private int baseX;
+    private int baseX = 1920;
     public int getBaseX()
     {
         return baseX;
     }
-    private int baseY;
+    private int baseY = 320;
     public int getBaseY()
     {
         return  baseY;
@@ -43,6 +43,13 @@ public class Player {
         score = 0;
         credits =1000;
         health =1000;
+    }
+
+    public void reset()
+    {
+        score = 0;
+        credits = 1000;
+        health = 1000;
     }
 
 }

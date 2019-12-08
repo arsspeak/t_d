@@ -3,11 +3,11 @@ package Tower;
 import Enemy.Enemy;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.locks.Lock;
 
 
 public class TowerFrame {
@@ -15,14 +15,19 @@ public class TowerFrame {
     private int cost;
     private int range;
     private int speed;
+    private String type;
+
+    private Bullet bullet;
 
     private int X;
     private int Y;
+
 
     private boolean lock;
 
     private Enemy LockedEnemy;
     private Image img;
+    private ImageView iv = new ImageView();
 
     private Timer timer = new Timer();
     private TimerTask task = new TimerTask() {
@@ -33,14 +38,19 @@ public class TowerFrame {
     };
 
 
-    public TowerFrame(String type)
+    public TowerFrame(String type, int placeX, int placeY)
     {
         switch(type)
         {
             case "Reg_Lv1":
+                this.type = type;
             case "Reg_Lv2":
+                this.type = type;
             case "add more pls":
         }
+        iv.setImage(img);
+        X = placeX;
+        Y = placeY;
     }
 
     public void action(List<Enemy> bruh)
@@ -84,6 +94,7 @@ public class TowerFrame {
     private void attack(Enemy gae)
     {
         gae.getAttacked(damage);
+        bullet = new Bullet(X,Y, gae.getX(), gae.getY(), this.type);
     }
 
     private void lock(Enemy gae)
@@ -103,5 +114,10 @@ public class TowerFrame {
         if(Math.sqrt(Math.pow(this.X-gae.getX(), 2)+Math.pow(this.Y-gae.getY(), 2))>range);
         return true;
     }
+
+    public ImageView getIV(){
+        return this.iv;
+    }
+
 
 }

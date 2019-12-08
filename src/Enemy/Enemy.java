@@ -10,6 +10,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import Game.Game.*;
+import javafx.scene.image.ImageView;
 
 public class Enemy{
 
@@ -20,9 +21,13 @@ public class Enemy{
     {
         return health;
     }
+    private int turnCount;
 
     private int damage;
+
     private Image img;
+    private ImageView iv = new ImageView();
+
     private int direction; // 0 1 2 3 | UP DOWN LEFT RIGHT //
 
     private int X;
@@ -52,23 +57,32 @@ public class Enemy{
         }
     };
 
-    public Enemy(String type) {
+    public Enemy(String type, Image objImg) {
 
         //
         direction = 3; // Default RIGHT
         this.type = type;
+        X = 0;
+        Y= 2240;
+        turnCount = 0;
+        img = objImg;
+        iv.setImage(img);
         switch (type)
         {
             case "lv1":
                 setHealth(100);
                 setSpeed(10);
                 setDamage(100);
-                img = new Image("bruh.png");
+                iv.setRotate(0);
             case "lv2":
             case "aeroplane":
+                setHealth(100);
+                setSpeed(10);
+                iv.setRotate(-16.7);
             case "boss":
 
         }
+
         timer.schedule(task, 1000/speed);
     }
 
@@ -79,12 +93,21 @@ public class Enemy{
 
     public void action(Player player)
     {
-        if(this.X>=player.getBaseX()) player.rekt(damage);
-        if(isOrPassTurningPoint()) turn();
+        if(type.equals("aeroplane")) fly();
+        else {
+
+            if (this.X >= player.getBaseX()) {
+                player.rekt(damage);
+                health = 0;
+                timer.cancel();
+
+            }
+            if (isOrPassTurningPoint()) turn(this.iv);
+        }
     }
 
     public void draw(GraphicsContext gc){
-        gc.drawImage(img, X, Y);
+
     }
 
     private void lookahead(ArrayList<Enemy> temp)
@@ -131,20 +154,49 @@ public class Enemy{
         }
     }
 
-    private void doNotMove()
-    {
-
-    }
+    private void doNotMove() {}
 
     private boolean isOrPassTurningPoint()
     {
-        return true;
-        // Implement something
+        switch(turnCount)
+        {
+            case 0:
+                if((int)X/128==17) return true;
+            case 1:
+                if((int)Y/128==7) return true;
+            case 2:
+                if((int)X/128==1) return true;
+            case 3:
+                if((int)Y/128==3) return true;
+        }
+        return false;
+
     }
 
-    private void turn()
+    private void turn(ImageView iv)
     {
         // Make a turning matrix
+        switch (turnCount)
+        {
+            case 0:
+                direction = 0;
+                iv.setRotate(-90);
+            case 1:
+                direction = 2;
+                iv.setRotate(180);
+            case 2:
+                direction = 0;
+                iv.setRotate(-90);
+            case 3:
+                direction = 3;
+                iv.setRotate(0);
+        }
+    }
+
+    private void fly()
+    {
+        X-=speed*Math.cos(16.7);
+        Y-=speed*Math.sin(16.7);
     }
 
 
