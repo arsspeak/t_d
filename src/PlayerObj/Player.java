@@ -5,8 +5,16 @@ public class Player {
     private int credits;
     private int health;
 
-    public int baseX;
-    public int baseY;
+    private int baseX;
+    public int getBaseX()
+    {
+        return baseX;
+    }
+    private int baseY;
+    public int getBaseY()
+    {
+        return  baseY;
+    }
 
     public int getScore(){
         return this.score;
@@ -25,7 +33,7 @@ public class Player {
         this.health-=damage;
     }
 
-    public boolean isthisLoss(){
+    public boolean isThisLoss(){
         if(this.health<=0) return true;
         else return false;
     }
