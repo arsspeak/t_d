@@ -64,7 +64,7 @@ public class Enemy<EnemyImg> {
         }
     }
 
-    private boolean isorpassturningPoint()
+    private boolean isOrPassTurningPoint()
     {
         return true;
         // Implement something
@@ -87,6 +87,6 @@ public class Enemy<EnemyImg> {
         if(this.X>=player.baseX) player.rekt(damage);
         // EnemyImg.;
         movearound();
-        if(isorpassturningPoint()) turn();
+        if(isOrPassTurningPoint()) turn();
     }
 }
