@@ -4,7 +4,7 @@ import javafx.scene.image.*;
 import java.io.InputStream;
 import PlayerObj.Player;
 
-public class Enemy {
+public class Enemy<EnemyImg> {
 
     private int health;
     private int speed;
@@ -32,9 +32,6 @@ public class Enemy {
         }
     }
 
-
-
-    Image EnemyImg = new Image(InputStream.nullInputStream());
 
     public void setSpeed(int speed)
     {

@@ -7,12 +7,11 @@ import java.util.*;
 
 public class Gæm {
 
-    public void gæm() {
+    private Player player = new Player();
+    private ArrayList<TowerFrame> towers = new ArrayList<TowerFrame>();
+    private ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 
-        // Init
-        Player player = new Player();
-        ArrayList<TowerFrame> towers = new ArrayList<TowerFrame>();
-        ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+    public Gæm() {
 
         // This is the gæm loöp
         while(!player.isthisLoss())
@@ -23,6 +22,12 @@ public class Gæm {
             if(player.isthisLoss()) break;
 
         }
+
+
     }
+        public void addTower(String type)
+        {
+            towers.add(new TowerFrame(type));
+        }
 
 }

@@ -27,24 +27,24 @@ public class TowerFrame {
         }
     }
 
-    public void attack(Enemy gae)
+    private void attack(Enemy gae)
     {
         gae.getAttacked(damage);
     }
 
-    public void lock(Enemy gae)
+    private void lock(Enemy gae)
     {
         lock = true;
         LockedEnemy = gae;
     }
 
-    public boolean inRange(Enemy gae)
+    private boolean inRange(Enemy gae)
     {
         if(Math.sqrt(Math.pow(this.X-gae.X, 2)+Math.pow(this.Y-gae.Y, 2))<range);
         return true;
     }
 
-    public boolean outOfRange(Enemy gae)
+    private boolean outOfRange(Enemy gae)
     {
         if(Math.sqrt(Math.pow(this.X-gae.X, 2)+Math.pow(this.Y-gae.Y, 2))>range);
         return true;
