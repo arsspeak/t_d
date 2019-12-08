@@ -13,8 +13,6 @@ public class Main extends Application {
     public void start(Stage stage)
     {
         Gæm game = new Gæm();
-        Image bruh = new Image(InputStream.nullInputStream());
-
 
         Canvas cv = new Canvas();
         GraphicsContext gc;
