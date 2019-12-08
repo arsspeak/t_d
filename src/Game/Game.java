@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-public class Game extends Application {
+public class Game{
 
 
     private Player player = new Player();
@@ -30,7 +30,7 @@ public class Game extends Application {
 
 
 
-    public Game(Group root) {
+    public Game() {
 
         // This is the gæm loöp
         player.reset();
@@ -41,9 +41,6 @@ public class Game extends Application {
 
         while(!player.isThisLoss())
         {
-            for(TowerFrame tower : towers) {
-                root.getChildren().add(tower.getIV());
-            }
             for(TowerFrame tower : towers) tower.action(enemies);
             enemies.removeIf(enemy -> (enemy.getHealth()<=0));
             for(Enemy enemy : enemies) enemy.action(player);
@@ -64,40 +61,19 @@ public class Game extends Application {
                 enemies.add(new Enemy(type, Enemy_Lv1));
 
         }
-
     }
 
+    public ArrayList<Enemy> getEnemies(){
+        return enemies;
+    }
 
-
-
-
-
-    @Override
-    public void start(Stage stage)
+    public ArrayList<TowerFrame> getTowers()
     {
-
-
-
-
-        GraphicsContext gc;
-        Canvas cv = new Canvas();
-        Group root = new Group();
-        Scene scene = new Scene(root);
-        scene.setFill(Color.BLACK);
-
-        for(TowerFrame tower : towers) {
-            root.getChildren().add(tower.getIV());
-        }
-
-        gc = cv.getGraphicsContext2D();
-
-        Game game = new Game(root);
-        Map map = new Map();
-        map.draw(gc);
-
-        stage.setScene(scene);
-        stage.show();
-
+        return towers;
     }
 
+    public Player getPlayer()
+    {
+        return player;
+    }
 }
