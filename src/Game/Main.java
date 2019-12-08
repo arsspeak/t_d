@@ -9,13 +9,13 @@ public class Main extends Application {
     @Override
     public void start(Stage stage)
     {
-        Game game = new Game();
+        // Game game = new Game();
 
         Canvas cv = new Canvas();
         GraphicsContext gc;
 
         gc = cv.getGraphicsContext2D();
-        game.drawEverything(gc);
+        // game.drawEverything(gc);
 
         stage.show();
     }

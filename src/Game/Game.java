@@ -93,6 +93,7 @@ public class Game extends Application {
 
         Game game = new Game(root);
         Map map = new Map();
+        map.draw(gc);
 
         stage.setScene(scene);
         stage.show();

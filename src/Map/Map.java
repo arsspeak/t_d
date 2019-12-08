@@ -6,7 +6,7 @@ import javafx.scene.image.Image;
 import java.util.Arrays;
 
 public class Map {
-    Image img = new Image("map.png");
+    Image img = new Image("src/map.png");
 
     public void draw(GraphicsContext gc)
     {
