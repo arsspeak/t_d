@@ -19,7 +19,7 @@ public class Main extends Application {
         Canvas cv = new Canvas();
         GraphicsContext gc;
         gc = cv.getGraphicsContext2D();
-        
+
         stage.show();
     }
 }
