@@ -54,6 +54,7 @@ public class Game extends Application {
     }
     public void addTower(String type, int placeX, int placeY)
         {
+
             towers.add(new TowerFrame(type, placeX, placeY ));
         }
 

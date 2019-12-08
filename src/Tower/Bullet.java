@@ -16,7 +16,7 @@ public class Bullet {
         public void run() {
             fly();
         }
-    }
+    };
     private int X;
     private int Y;
 
